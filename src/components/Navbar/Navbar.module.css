@@ -1,0 +1,130 @@
+nav {
+    background-color: #7469B6;
+    overflow: hidden;
+    position: relative;
+
+    & a {
+        color: #FFE6E6;
+    }
+
+    & .bars {
+        position: absolute;
+        top: 50px;
+        right: 20px;
+        color: #FFE6E6;
+    }
+
+    & .container {
+        max-width: 1170px;
+        margin: 0 auto;
+    }
+
+    /* ให้ navbar สูง 60, element เรียงกันเป็นแถวแกน x, เรียงให้สวยงาม และ จัดกึ่งกลาง */
+    & .nav_con {
+        height: 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        & .logo {
+            & a {
+                text-decoration: none;
+                font-weight: bold;
+            }
+        }
+
+        /* ให้ ul มี element เรียงกันเป็นแถวแกน x, ลบ bullet ออกไป, เรียงให้สวยงาม */
+        & ul {
+            display: flex;
+            list-style: none;
+
+            /* บน/ล่างเป็น 0, ซ้าย/ขวาเป็น35px */
+            & li {
+                margin: 0 35px;
+
+                /* ลบขีดเส้นใต้ออกไป */
+                & a {
+                    text-decoration: none;
+                }
+            }
+        }
+
+        & .button {
+            width: 100px;
+            height: 35px;
+            background-color: #FFE6E6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+            transition: 0.3s;
+            cursor: pointer;
+
+            /* sudo class: hover, สร้างเงา แกน x/y เป็น 0, ฟุ้ง 20px, space เป็น 0, สี เป็น alpha 0.3 */
+            &:hover {
+                box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.3);
+            }
+
+            & a {
+                text-decoration: none;
+                color: #7469B6;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .nav_con {
+        flex-direction: column;
+        /* เพื่อให้ปรับขนาดได้อัตโนมัติ และใช้ !important เพื่อบังคับให้มันปรับตามความสูง */
+        height: auto !important; 
+        margin: 50px 0;
+        align-items: start !important;
+        margin-left: 30px;
+
+        & ul, .button {
+            display: none !important;
+        }
+    }
+
+    & .mobile_menu {
+        list-style: none;
+        & li {
+            margin: 35px;
+
+            & a {
+                text-decoration: none;
+            }
+        }
+    }
+
+    & .mobile_button {
+        width: 100px;
+        height: 35px;
+        background-color: #FFE6E6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        transition: 0.3s;
+        cursor: pointer;
+        margin-left: 35px;
+        margin-bottom: 20px;
+
+        /* sudo class: hover, สร้างเงา แกน x/y เป็น 0, ฟุ้ง 20px, space เป็น 0, สี เป็น alpha 0.3 */
+        &:hover {
+            box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.3);
+        }
+
+        & a {
+            text-decoration: none;
+            color: #7469B6;
+        }
+    }
+}
+
+@media screen and (min-width: 481px) {
+    .mobile_button, .mobile_menu, .bars {
+        display: none;
+    }
+}
